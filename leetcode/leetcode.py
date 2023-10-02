@@ -57,4 +57,84 @@ class Solution:
                 return True
         return False
     
-print(Solution().increasingTriplet([2,1,5,0,4,6]))
+# print(Solution().increasingTriplet([2,1,5,0,4,6]))
+
+# https://leetcode.com/problems/string-compression/?envType=study-plan-v2&envId=leetcode-75
+
+class Solution:
+    def compress(self, chars: List[str]) -> int:
+        res = []
+        i = 0
+        c = 0
+        while i <= len(chars):
+            x = chars[i]
+            while x == chars[i+1]:
+                i += 1
+            # res.append(chars[i])
+            # res.append(c)
+
+        return res
+
+
+# print(Solution().compress(["a","a","b","b","c","c","c"]))
+
+
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        nums.sort(key=lambda x: x == 0)
+        return nums
+
+# https://leetcode.com/problems/is-subsequence/?envType=study-plan-v2&envId=leetcode-75
+
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        i, j = 0
+        c_s = len(s)
+        c_t = len(t)
+
+        while i < c_s and j < c_t:
+            if s[i] == t[j]:
+                i += 1
+                j += 1
+            else:
+                j += 1
+        return i == j
+
+
+# print(Solution().isSubsequence(s = 'abc', t = 'ahbgdc'))
+
+
+# https://leetcode.com/problems/container-with-most-water/?envType=study-plan-v2&envId=leetcode-75
+
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        res = set()
+        for i, value in enumerate(height):
+            for j in range(i, len(height)):
+                res.add((j-i) * min([value, height[j]]) )
+        return max(res)
+
+# print(Solution().maxArea(x))
+
+
+# https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/?envType=study-plan-v2&envId=leetcode-75
+
+class Solution:
+    def maxVowels(self, s: str, k: int) -> int:
+        # for i, value in enumerate(s):
+        sogl = 'aeuio'
+        c = 0
+        curr = float('-inf')
+        curr_list = [i for i, value in enumerate(s) if value in sogl]
+        for i in range(len(curr_list)):
+            l = curr_list[i] + k
+            for j in range(i, len(curr_list)):
+                if l > curr_list[j]:
+                    c += 1
+
+        return c
+
+# print(Solution().maxVowels('weallloveyou', 7))
