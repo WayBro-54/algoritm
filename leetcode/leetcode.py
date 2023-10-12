@@ -138,3 +138,49 @@ class Solution:
         return c
 
 # print(Solution().maxVowels('weallloveyou', 7))
+# https://leetcode.com/problems/min-cost-climbing-stairs/
+
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        res_summ = 0
+        i = 0
+        # curr_summ = 0
+
+        while i < len(cost) - 1:
+            res_summ += min(cost[i], cost[i + 1])
+            print(i, res_summ)
+            if cost[i] == cost[i + 1]:
+                i += 1
+            i += 1
+        return res_summ
+
+# print(Solution().minCostClimbingStairs([10, 15,20 ]))
+
+
+# https://leetcode.com/problems/find-the-highest-altitude/?envType=study-plan-v2&envId=leetcode-75
+
+class Solution:
+    def largestAltitude(self, gain: List[int]) -> int:
+        max_height, curr = 0, 0
+
+        for i in gain:
+            curr += i
+            max_height = max(max_height, curr)
+        return max_height
+
+from time import sleep
+# https://leetcode.com/problems/find-pivot-index/?envType=study-plan-v2&envId=leetcode-75
+class Solution:
+    def pivotIndex(self, nums: List[int]) -> int:
+        lSum = 0
+        rSum = sum(nums)
+
+        for i in range(len(nums)):
+            rSum -= nums[i]
+            if lSum == rSum:
+                return i
+            lSum += nums[i]
+
+        return -1
+
+print(Solution().pivotIndex([-1,-1,-1,-1,-1,-1]))
