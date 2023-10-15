@@ -183,4 +183,5 @@ class Solution:
 
         return -1
 
-print(Solution().pivotIndex([-1,-1,-1,-1,-1,-1]))
+# print(Solution().pivotIndex([-1,-1,-1,-1,-1,-1]))
+

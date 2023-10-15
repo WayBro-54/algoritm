@@ -26,12 +26,7 @@ def count(s):
 # print(count(x))
 
 # https://www.codewars.com/kata/550498447451fbbd7600041c/train/python
-a1 = []
-a2 = None
-#
-# a1 = [121, 144]
-# a2 = [11*11, 144*144]
-# print(a2)
+
 def comp(array1, array2):
     if array1 is None or array2 is None:
         return False
@@ -39,13 +34,9 @@ def comp(array1, array2):
     a_squared = [x * x for x in array1]
 
     return sorted(a_squared) == sorted(array2)
-# #
-#     # return 'hello'
+
 # еще какое-то легкое задание
 # x = [1, 2, 3, 4, 5, 6, ]
-#
-# max()
-# min()
 
 # https://www.codewars.com/kata/55fd2d567d94ac3bc9000064/train/python
 
@@ -87,8 +78,6 @@ def longest_slide_down(pyramid: list[list[int]]) -> int:
     index = 0
     for line in range(1, len(pyramid)):
         now_list = pyramid[line]
-        # print(now_list)
-        # print(now_list)
         max_value_next_line = max(now_list)
         print(max_value_next_line)
         index = now_list.index(max_value_next_line)
@@ -164,7 +153,6 @@ def solution(start, finish):
             start += 1
         count += 1
     return count
-    return sum(divmod())
 
 # print(solution(828, 849))
 
@@ -198,6 +186,7 @@ def solution(array_a, array_b):
 
 
 # https://www.codewars.com/kata/55983863da40caa2c900004e/python
+
 import itertools
 def next_bigger(n):
     t = str(n)
@@ -210,14 +199,23 @@ def next_bigger(n):
     if len(new_list) == 0:
         return -1
 
-    # pass
+# print(next_bigger(2317))
 
-print(next_bigger(2317))
+# https://www.codewars.com/kata/60aa29e3639df90049ddf73d/train/python
 
-
-
-
-#
-
-
-
+def binarray(l):
+    c, r, d = 0, 0, {0:-1}
+    for i in range(len(l)):
+        n = l[i]
+        if n==0:
+            c-=1
+        if n==1:
+            c+=1
+        
+        if c in d:
+            r = max(r, i-d[c])
+        else:
+            d[c] = i
+        print(c, r, d, i)
+    return r
+binarray([0,0,1,1,1,0,0,0,0,0])
