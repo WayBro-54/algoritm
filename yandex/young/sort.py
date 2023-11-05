@@ -35,9 +35,46 @@ def partition(len_lst, lst, opor):
 
 def main():
     llst, lst, opor = input_()
-
     le, other = partition(llst, lst, opor)
     print(le)
     print(other)
 
+# main()
+
+
+# Слияние
+
+
+def input_():
+    # ввод данных  ипреобразование к целочисленному типу
+    len_lst_1 = int(input())
+    lst_1 = list(map(int, input().split()))
+    len_lst_2 = int(input())
+    lst_2 = list(map(int, input().split()))
+    return len_lst_1, lst_1, len_lst_2, lst_2,
+
+def merge(len1, lst1: list[int], len2, lst2: list[int]):
+    res = []
+    i, j = 0, 0
+    while (i < len1) and (j < len2):
+        if lst1[i] < lst2[j]:
+            res.append(lst1[i])
+            i += 1
+        else:
+            res.append(lst2[j])
+            j += 1
+    res += lst1[i:]
+    res += lst2[j:]
+    return res
+
+def main():
+    nlst1, lst1, nlst2, lst2 = input_()
+    res = merge(nlst1, lst1, nlst2, lst2)
+    print(''.join(res))
 main()
+
+##############################################
+#           СОРТИРОВКА СЛИЯНИЕМ              #
+##############################################
+
+
