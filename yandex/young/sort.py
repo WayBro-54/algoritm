@@ -71,10 +71,82 @@ def main():
     nlst1, lst1, nlst2, lst2 = input_()
     res = merge(nlst1, lst1, nlst2, lst2)
     print(''.join(res))
-main()
+# main()
 
 ##############################################
 #           СОРТИРОВКА СЛИЯНИЕМ              #
 ##############################################
+
+def input_():
+    llst = int(input())
+    lst = list(map(int, input().split()))
+    return lst
+
+def merge(lst1: list[int], lst2: list[int]):
+    res = []
+    i, j = 0, 0
+    while (i < len(lst1)) and (j < len(lst2)):
+        if lst1[i] < lst2[j]:
+            res.append(lst1[i])
+            i += 1
+        else:
+            res.append(lst2[j])
+            j += 1
+    res += lst1[i:]
+    res += lst2[j:]
+    return res
+
+def split_list(lst):
+    llst = len(lst) // 2
+
+    l1 = lst[:llst]
+    l2 = lst[llst:]
+
+    if len(l1) > 1:
+        l1 = split_list(l1)
+    if len(l2) > 1:
+        l2 = split_list(l2)
+
+    return merge(l1, l2)
+
+def main():
+    lst = input_()
+    res = split_list(lst)
+    print(*res)
+
+# main()
+
+################################################
+# Быстрая соритрвока
+################################################
+
+# import random
+#
+# def input_():
+#     llst = int(input())
+#     lst = list(map(int, input().split()))
+#     return lst
+#
+#
+# def quick_sort(lst: list[int]):
+#     if len(lst) > 1:
+#         x = lst[random.randint(0, len(lst) - 1)]
+#         low = [i for i in lst if i < x]
+#         mid = [i for i in lst if i == x]
+#         hi = [i for i in lst if i > x]
+#         lst = quick_sort(low) + mid + quick_sort(hi)
+#
+#     return lst
+#
+# def main():
+#     lst = input_()
+#     res = quick_sort(lst)
+#     print(*res)
+
+# main()
+
+
+
+
 
 
