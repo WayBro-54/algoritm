@@ -39,10 +39,41 @@ def add_fractions(a, b, c, d):
     return result_numerator, result_denominator
 
 # Ввод данных
-a, b, c, d = map(int, input().split())
+# a, b, c, d = map(int, input().split())
 
 # Сложение дробей и упрощение результата
-result_numerator, result_denominator = add_fractions(a, b, c, d)
+# result_numerator, result_denominator = add_fractions(a, b, c, d)
 
 # Вывод результата
-print(result_numerator, result_denominator)
+# print(result_numerator, result_denominator)
+
+# https://contest.yandex.ru/contest/53027/problems/D/
+
+def input_():
+    in_ = input()
+    out_ = input()
+    return in_, out_
+
+def annogramma(in_: str = None, out_: str = None):
+    x = {}
+    for i in out_:
+        if i not in x:
+            x[i] = 1
+        elif i in x:
+            x[i] += 1
+
+    for i in in_:
+        if i not in x:
+            return 'NO'
+        elif i in x:
+            x[i] -= 1
+            if x[i] == 0:
+                x.pop(i)
+    if x == {}:
+        return 'YES'
+    return 'NO'
+def main():
+    in_, out_ = input_()
+    print(annogramma(in_, out_))
+# main()
+# print(annogramma('rat', 'bat'))
