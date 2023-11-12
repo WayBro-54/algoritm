@@ -77,3 +77,27 @@ def main():
     print(annogramma(in_, out_))
 # main()
 # print(annogramma('rat', 'bat'))
+
+# https://contest.yandex.ru/contest/53027/problems/E/
+
+def input_():
+    x = int(input())
+    lst = list(map(int, input().split()))
+    return x, lst
+def middle_level(n, lst: list[int]):
+    levels = []
+    for i in range(n):
+        dissatisfaction = 0
+
+        for j in range(n):
+            dissatisfaction += abs(lst[i] - lst[j])
+
+        levels.append(dissatisfaction)
+
+    print(*levels)
+
+def main():
+    x, lst = input_()
+    middle_level(x, lst)
+
+main()
